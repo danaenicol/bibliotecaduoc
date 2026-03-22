@@ -9,11 +9,29 @@ public class LibroService {
     @Autowired
     private LibroRepository libroRepository;
 
+    // Obtener todos los libros
     public List<Libro> getLibros(){
         return libroRepository.obtenerLibros();
     }
 
+    // Guardar libro
     public Libro saveLibro(Libro libro){
-        return libroRepository.obtenerLibros();
+        return libroRepository.guardar(libro);
+    }
+
+    // Buscar libro por id
+    public Libro getLibroId(int id){
+        return libroRepository.buscarPorId(id);
+    }
+
+    // Actualizar libro
+    public Libro updateLibro(Libro libro){
+        return libroRepository.actualizar(libro);
+    }
+
+    // Eliminar libro
+    public String deleteLibro(int id){
+        libroRepository.eliminar(id);
+        return "Libro eliminado correctamente";
     }
 }
